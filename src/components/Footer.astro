@@ -1,9 +1,25 @@
 ---
-
+const socialLinks = [
+    { platform: 'Kick', url: 'https://kick.com/ustatvofficial', icon: '🎮' },
+    { platform: 'Twitter', url: 'https://twitter.com/ustatvofficial', icon: '𝕏' },
+    { platform: 'Instagram', url: 'https://instagram.com/ustatvofficial', icon: '📷' },
+    { platform: 'Discord', url: 'https://discord.gg/ustatv', icon: '💬' }
+];
 ---
 
-<footer class="pt-16 pb-12 sm:pt-24 sm:pb-16">
-    <p class="text-sm">
-        <a href="https://docs.netlify.com/frameworks/astro/" class="decoration-dashed text-primary underline-offset-8"> Astro on Netlify </a>
-    </p>
+<footer class="w-full py-12 px-4 border-t border-gray-800">
+    <div class="flex flex-col items-center space-y-8 max-w-7xl mx-auto">
+        <div class="flex space-x-6">
+            {
+                socialLinks.map((link) => (
+                    <a href={link.url} target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-green-400 no-underline" title={link.platform}>
+                        {link.icon}
+                    </a>
+                ))
+            }
+        </div>
+        <div class="text-center text-gray-400">
+            <p>© {new Date().getFullYear()} Usta TV Official</p>
+        </div>
+    </div>
 </footer>

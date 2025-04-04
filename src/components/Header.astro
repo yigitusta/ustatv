@@ -1,30 +1,49 @@
 ---
-import Logo from '../components/Logo.astro';
-
 const navItems = [
-    { linkText: 'Home', href: '/' },
-    { linkText: 'Revalidation', href: '/revalidation' },
-    { linkText: 'Image CDN', href: '/image-cdn' },
-    { linkText: 'Edge Function', href: '/edge' },
-    { linkText: 'Blobs', href: '/blobs' }
+    { label: 'Schedule', href: '#schedule' },
+    { label: 'Gear', href: '#gear' },
+    { label: 'About', href: '#about' },
+    { label: 'Social', href: '#social' }
 ];
 ---
 
-<nav class="flex flex-wrap items-center gap-4 pt-6 pb-16 sm:pt-12 sm:pb-24">
-    <a href="/">
-        <Logo />
-    </a>
-    {
-        !!navItems?.length && (
-            <ul class="flex flex-wrap gap-x-4 gap-y-1">
-                {navItems.map((item) => (
-                    <li>
-                        <a href={item.href} class="inline-block px-1.5 py-1 sm:px-3 sm:py-2">
-                            {item.linkText}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        )
-    }
-</nav>
+<header class="w-full py-6 px-4">
+    <nav class="flex items-center justify-between max-w-7xl mx-auto">
+        <a href="/" class="text-xl font-bold no-underline">Usta TV Official</a>
+        <div class="hidden md:flex items-center space-x-8">
+            {
+                navItems.map((item) => (
+                    <a href={item.href} class="text-gray-300 hover:text-white no-underline">
+                        {item.label}
+                    </a>
+                ))
+            }
+            <a
+                href="https://kick.com/ustatvofficial"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg no-underline"
+            >
+                Watch Live
+            </a>
+        </div>
+    </nav>
+</header>
+
+<section class="py-20 text-center px-4">
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl mb-6">Welcome to Usta TV Official</h1>
+    <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+        Join me on my streaming journey where we play games, have fun, and build an amazing community together.
+    </p>
+    <div class="flex justify-center space-x-4">
+        <a
+            href="https://kick.com/ustatvofficial"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg no-underline"
+        >
+            Watch on Kick
+        </a>
+        <a href="#schedule" class="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg no-underline"> View Schedule </a>
+    </div>
+</section>

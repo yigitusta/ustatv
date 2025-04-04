@@ -1,0 +1,62 @@
+---
+interface ScheduleItem {
+    day: string;
+    time: string;
+    title: string;
+    description?: string;
+}
+
+const schedule: ScheduleItem[] = [
+    {
+        day: 'Monday',
+        time: '19:00 - 22:00',
+        title: 'Regular Stream',
+        description: 'Join me for some gaming fun!'
+    },
+    {
+        day: 'Wednesday',
+        time: '19:00 - 22:00',
+        title: 'Regular Stream',
+        description: 'More gaming adventures!'
+    },
+    {
+        day: 'Friday',
+        time: '19:00 - 23:00',
+        title: 'Weekend Special',
+        description: 'Extended stream session!'
+    },
+    {
+        day: 'Saturday',
+        time: '15:00 - 19:00',
+        title: 'Weekend Stream',
+        description: 'Afternoon gaming session!'
+    }
+];
+---
+
+<section id="schedule" class="py-20 px-4">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Streaming Schedule</h2>
+        <div class="grid gap-4">
+            {
+                schedule.map((item) => (
+                    <div class="p-6 bg-gray-800 rounded-lg">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-semibold">{item.title}</h3>
+                            <span class="text-green-400">{item.time}</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <span class="mr-2">⏰</span>
+                            <span>{item.day}</span>
+                        </div>
+                        {item.description && <p class="mt-2 text-gray-300">{item.description}</p>}
+                    </div>
+                ))
+            }
+        </div>
+        <div class="mt-8 text-center text-gray-400">
+            <p>All times are in your local timezone</p>
+            <p class="mt-2">Schedule may vary - follow me on social media for updates!</p>
+        </div>
+    </div>
+</section>
